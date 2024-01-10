@@ -30,13 +30,13 @@ public class SubjectController {
     }
 
     @GetMapping
-    public ResponseEntity getSubjectById(UUID idSubject){
+    public ResponseEntity<Subject> getSubjectById(@RequestHeader("idSubject") UUID idSubject){
 
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/all")
-    public ResponseEntity listAllSubject(){
+    public ResponseEntity listAllSubjects(){
 
         return ResponseEntity.ok().build();
     }
