@@ -33,4 +33,10 @@ public class BookController {
         return ResponseEntity.ok().build();
     }
 
+    @DeleteMapping
+    public ResponseEntity<Book> deleteBookById(@Param("idBook") UUID idBook){
+        // TODO: Implements method
+        return ResponseEntity.ok().build();
+    }
+
 }

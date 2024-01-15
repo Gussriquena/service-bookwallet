@@ -38,4 +38,10 @@ public class AuthorController {
         return ResponseEntity.ok().build();
     }
 
+    @DeleteMapping
+    public ResponseEntity<Author> deleteAuthorById(@RequestHeader("idAuthor") UUID idAuthor){
+        // TODO: Implements method
+        return ResponseEntity.ok().build();
+    }
+
 }

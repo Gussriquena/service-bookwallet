@@ -41,4 +41,10 @@ public class SubjectController {
         return ResponseEntity.ok().build();
     }
 
+    @DeleteMapping
+    public ResponseEntity<Subject> deleteSubjectById(@RequestHeader("idSubject") UUID idSubject){
+
+        return ResponseEntity.ok().build();
+    }
+
 }

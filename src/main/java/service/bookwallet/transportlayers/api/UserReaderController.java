@@ -22,4 +22,10 @@ public class UserReaderController {
         return ResponseEntity.ok().build();
     }
 
+    @DeleteMapping
+    public ResponseEntity<UserReader> deleteUserReader(@RequestHeader("idUserReader") UUID idUserReader){
+        // TODO: Implements method
+        return ResponseEntity.ok().build();
+    }
+
 }
