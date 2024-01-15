@@ -14,14 +14,16 @@ import java.util.UUID;
 public class BookController {
 
     @PostMapping
-    public ResponseEntity<Book> insertBook(@RequestBody BookPayload payload){
+    public ResponseEntity<Book> insertBook(@RequestHeader("idUserReader") UUID idUserReader, @RequestBody BookPayload payload){
         // TODO: Implements method
+        System.out.println(payload.toString());
         return ResponseEntity.ok().build();
     }
 
     @GetMapping
     public ResponseEntity<Book> getBookByIdOrTitle(@Param("idBook") UUID idBook, @Param("title") String title){
         // TODO: Implements method
+        // implements strategy to decide wether use id or title
         return ResponseEntity.ok().build();
     }
 
