@@ -1,10 +1,12 @@
+-- Alterar tipo de dados para UUID nas tabelas
+
 CREATE TABLE subject (
-  id_subject_PK INT AUTO_INCREMENT PRIMARY KEY,
+  id_subject_PK UUID PRIMARY KEY,
   title VARCHAR(150)
 );
 
 CREATE TABLE user_reader (
-  id_user_reader_PK INT AUTO_INCREMENT PRIMARY KEY,
+  id_user_reader_PK UUID PRIMARY KEY,
   username VARCHAR(100),
   email VARCHAR(150),
   pass VARCHAR(100),
@@ -12,14 +14,14 @@ CREATE TABLE user_reader (
 );
 
 CREATE TABLE author (
-  id_author_PK INT AUTO_INCREMENT PRIMARY KEY,
+  id_author_PK UUID PRIMARY KEY,
   nickname VARCHAR(100)
 );
 
 CREATE TABLE book (
-  id_book_PK INT AUTO_INCREMENT PRIMARY KEY,
-  id_author_FK INT,
-  id_subject_FK INT,
+  id_book_PK UUID PRIMARY KEY,
+  id_author_FK UUID,
+  id_subject_FK UUID,
   title VARCHAR(100),
   cover_path VARCHAR(255),
   FOREIGN KEY (id_author_FK) REFERENCES author(id_author_PK),
@@ -27,8 +29,8 @@ CREATE TABLE book (
 );
 
 CREATE TABLE user_reader_book (
-  id_user_reader_FK INT NOT NULL,
-  id_book_FK INT NOT NULL,
+  id_user_reader_FK UUID,
+  id_book_FK UUID,
   rating INT,
   summary TEXT,
   is_book_read BOOLEAN,
