@@ -21,11 +21,15 @@ public class SubjectUseCase {
     }
 
     public Subject getSubject(UUID idSubject){
-        return null;
+        return subjectRepository.getSubject(idSubject);
     }
 
     public List<Subject> listAllSubject(){
-        return null;
+        return subjectRepository.listAllSubject();
+    }
+
+    public void deleteSubjectById(UUID idSubject){
+        subjectRepository.deleteSubjectById(idSubject);
     }
 
 }

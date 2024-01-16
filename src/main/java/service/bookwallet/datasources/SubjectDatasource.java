@@ -30,11 +30,18 @@ public class SubjectDatasource implements SubjectRepository {
 
     @Override
     public Subject getSubject(UUID idSubject) {
-        return null;
+        SubjectDto subjectDto = subjectJpaRepository.findByIdSubject(idSubject).get();
+        return subjectMapper.mapDtoToSubject(subjectDto);
     }
 
     @Override
     public List<Subject> listAllSubject() {
-        return null;
+        List<SubjectDto> subjectDtos = subjectJpaRepository.findAll();
+        return subjectMapper.mapDtoListToSubjectList(subjectDtos);
+    }
+
+    @Override
+    public void deleteSubjectById(UUID idSubject) {
+        subjectJpaRepository.deleteById(idSubject);
     }
 }

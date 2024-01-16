@@ -7,6 +7,7 @@ import service.bookwallet.interactors.SubjectUseCase;
 import service.bookwallet.transportlayers.mapper.SubjectPayloadMapper;
 import service.bookwallet.transportlayers.payload.SubjectPayload;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -31,19 +32,19 @@ public class SubjectController {
 
     @GetMapping
     public ResponseEntity<Subject> getSubjectById(@RequestHeader("idSubject") UUID idSubject){
-
-        return ResponseEntity.ok().build();
+        Subject subject = subjectUseCase.getSubject(idSubject);
+        return ResponseEntity.ok(subject);
     }
 
     @GetMapping("/all")
-    public ResponseEntity listAllSubjects(){
-
-        return ResponseEntity.ok().build();
+    public ResponseEntity<List<Subject>> listAllSubjects(){
+        List<Subject> subjects = subjectUseCase.listAllSubject();
+        return ResponseEntity.ok(subjects);
     }
 
     @DeleteMapping
     public ResponseEntity<Subject> deleteSubjectById(@RequestHeader("idSubject") UUID idSubject){
-
+        subjectUseCase.deleteSubjectById(idSubject);
         return ResponseEntity.ok().build();
     }
 

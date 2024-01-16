@@ -15,4 +15,6 @@ public interface SubjectRepository {
 
     List<Subject> listAllSubject();
 
+    void deleteSubjectById(UUID idSubject);
+
 }

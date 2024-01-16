@@ -24,8 +24,8 @@ CREATE TABLE book (
   id_subject_FK UUID,
   title VARCHAR(100),
   cover_path VARCHAR(255),
-  FOREIGN KEY (id_author_FK) REFERENCES author(id_author_PK),
-  FOREIGN KEY (id_subject_FK) REFERENCES subject(id_subject_PK)
+  FOREIGN KEY (id_author_FK) REFERENCES author(id_author_PK) ON DELETE SET NULL,
+  FOREIGN KEY (id_subject_FK) REFERENCES subject(id_subject_PK) ON DELETE SET NULL
 );
 
 CREATE TABLE user_reader_book (
